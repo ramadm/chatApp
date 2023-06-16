@@ -46,7 +46,8 @@ int main(void) {
     // attempt to receive a message
     char buf[BUFFER_SIZE];
     int bytes_recv;
-    while (bytes_recv = recv(host_fd, buf, BUFFER_SIZE, 0) != 0) {
+    while ((bytes_recv = recv(host_fd, buf, BUFFER_SIZE, 0)) != 0) {
+        buf[bytes_recv] = '\0';
         if (bytes_recv == -1) {
                 fprintf(stderr, "%s", "Failed on recv() call\n");
                 fprintf(stderr, "Value of error: %d\n", errno);
