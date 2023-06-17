@@ -79,4 +79,5 @@ int main(void) {
     return 0;
 
     // TODO: free whatever needs to be freed
+    freeaddrinfo(res);
 }
