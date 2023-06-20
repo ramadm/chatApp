@@ -36,7 +36,7 @@ int run_recv(void *sock_fd_ptr) {
             fprintf(stderr, "%s", "Failed on recv() call\n");
             fprintf(stderr, "Value of error: %d\n", errno);
         }
-        printf("%s", buf);
+        printf("Them: %s", buf);
     }
 
     return 0;
@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     // connect to the specified ip as a client    
     } else {
         char* addr_str = argv[1];
-        if (argv[1] == "localhost") {
+        if (strncmp(argv[1], "localhost", sizeof("localhost")) == 0) {
             addr_str = NULL;
         }
         
